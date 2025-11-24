@@ -1,0 +1,55 @@
+version: "3.9"
+
+# ---------- ОБЩАЯ СЕТЬ ----------
+networks:
+  dev:                     # Создаём сеть "dev"
+    driver: bridge         # Стандартный драйвер
+
+services:
+
+  # ---------- BACKEND ----------
+  backend:
+    build:
+      context: ./backend   # Папка с бекендом
+    networks:
+      - dev                # Подключаем к сети "dev"
+
+    # Проверяем готовность бекенда
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:3000/posts || exit 1"]  # Проверка: порт 3000 отвечает?
+      interval: 3s        # Проверять каждые 3 секунды
+      timeout: 2s         # Ждём ответа максимум 2 секунды если нет тогда он не жив и выподняет весь цикл заново
+      retries: 3         # Пробуем 10 раз
+      start_period: 5s    # Даём 5 секунд на старт приложения
+
+  # ---------- FRONTEND ----------
+  frontend:
+    build:
+      context: ./front     # Папка с фронтом (тут свой nginx)
+    networks:
+      - dev
+
+    # Проверка готовности фронта
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000"]  # Фронтенд-Nginx должен отвечать на 5000
+      interval: 3s
+      timeout: 2s
+      retries: 15
+      start_period: 8s     # Фронт собирается дольше, даём время
+
+  # ---------- GATEWAY NGINX ----------
+  nginx:
+    image: nginx:stable-alpine        # Основной шлюз nginx
+    ports:
+      - "80:80"                       # Порт для пользователей
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf  # Монтируем твой gateway nginx.conf
+    networks:
+      - dev
+
+    # ВАЖНО: запускаться только когда оба сервиса готовы
+    depends_on:
+      backend:
+        condition: service_healthy    # Ждать, пока backend скажет "я готов"
+      frontend:
+        condition: service_healthy    # Ждать, пока frontend поднимет свой nginx

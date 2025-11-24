@@ -1,0 +1,515 @@
+body{
+    background-color: #504d4d;
+    color: azure;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+.hider{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgb(51, 51, 177);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Link{
+    text-decoration: none;
+    color: azure;
+    font-size: 20px;
+    margin: 15px;
+    pointer-events: painted;
+    transition: all 0.5s;
+}
+
+.logo{
+    display: none;
+    margin: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+    border-radius: 50%;
+    transition: all 0.5s;
+}
+
+.logo:hover{
+    background-color: #615757;
+}
+
+@media (max-width:670px) {
+    .Link{
+        font-size: 15px;
+    }
+}
+
+@media (max-width:588px) {
+    .Link{
+        display: none;
+    }
+    .hider{
+        justify-content: start;
+    }
+    .logo{
+        display: block;
+    }
+}
+
+.bokmenu{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 200px;
+    background: #2d2ab9;
+    display: flex;
+    flex-direction:column ;
+    align-items: center;
+    padding: 25px;
+    z-index: 200;
+    transition: all 0.5s;
+}
+
+.LinkP{
+    text-decoration: none;
+    color: azure;
+    font-size: 20px;
+    margin: 15px;
+    pointer-events: painted;
+    overflow-wrap: break-word;
+    transition: all 0.5s;
+}
+
+.LinkB{
+    text-decoration: none;
+    color: azure;
+    font-size: 20px;
+    margin: 15px;
+    pointer-events: painted;
+    transition: all 0.5s;
+}
+
+.no{
+    transform: translatex(-101%);
+}
+
+.close{
+    background: #071670;
+    padding: 20px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    border: solid ;
+    transition: all 0.5s;
+}
+
+.LinkC{
+    text-decoration: none;
+    color: azure;
+    font-size: 20px;
+    margin: 15px;
+    pointer-events: painted;
+    transition: all 0.5s;
+}
+
+.divclose{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Link:hover{
+    color: #000;
+}
+
+.Home{
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fade-up 1s ease-in-out;
+}
+
+.Div{
+    margin-top: 50px;
+    background: #071670;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    border: solid ;
+    transition: all 0.5s;
+}
+
+.icon{
+    position: absolute;
+    top: -44px;
+    right: 10px;
+}
+
+.Div:hover{
+    background: #cf3a3a;
+}
+
+.divEr{
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.divEr > button{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.Posts{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Post{
+    margin: 20px;
+    margin-top: 40px;
+    font-size: 25px;
+    text-align: center;
+    display: flex;
+    overflow-wrap: break-word;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    border-radius: 25px;
+    border: #000000 2px solid;
+    animation: normal 0.5s fade-up;
+    transition: all 0.5s;
+}
+
+.Post:hover{
+    transform: scale(1.03);
+}
+
+.PB{
+    position: fixed;
+    top: 100px;
+    left: 12px;
+    background: #000000;
+    color: azure;
+    padding: 20px;
+    transition: all 0.5s;
+    z-index: 2;
+}
+
+.post{
+    margin-top: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.post > h1{
+    animation: normal 0.5s fade-up;
+}
+
+.PB:hover{
+    transform: scale(1.1);
+}
+
+.DD{
+    margin: 50px ;
+    margin-top: 40px;
+    background: #071670;
+    padding: 25px;
+    text-align: center;
+    border-radius:50px;
+    font-family:  Arial, Helvetica, sans-serif;
+    line-height: 40px;
+    transition: all 0.5s;
+    animation: normal 0.5s fade-up;
+}
+
+.DD:hover{
+    transform: scale(1.05);
+}
+
+.Form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+}
+
+.Form > input{
+    padding: 10px;
+    border-radius: 230px;
+    background: #927878;
+    width: 250px;
+    border: solid;
+    outline: none;
+    transition: all 0.5s;
+}
+
+.Form > input:focus{
+    border: #ff0303 3px solid;
+}
+
+.Form > label > input{
+    margin-left: 17px;
+    scale: 2;
+}
+
+.b{
+    background-color: #200cce;
+    padding: 10px;
+    color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    width: 80px;
+    border-radius: 15px;
+    border: #000 solid 3px;
+    transition: all 0.5s;
+}
+
+.dede{
+    margin-top: 150px;
+    margin-bottom: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: normal 0.7s fade-up;
+}
+
+.ul{
+    font-size: 25px;
+}
+
+.b:hover{
+    transform: scale(1.1);
+}
+
+.Form2{
+    display: flex;
+    margin-top: 60px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Form2 input{
+    margin: 10px;
+    padding: 10px;
+    width: 250px;   
+    border-radius: 50px;
+    border: solid black 4px;
+    outline: none;
+    background: #0928d3;
+    color: wheat;
+    transition: all 0.5s;
+}
+
+.Form2 input:focus{
+    border: #ff0303 4px solid;
+}
+
+.Form2 button{
+    margin-top: 17px;
+    width: 170px;
+    padding: 15px;
+    border-radius: 40px;
+    background-color: aqua;
+    border:  solid 4px black;
+    transition: all 0.5s;
+}
+
+.Form2 button:hover{
+    transform: scale(1.1);
+}
+
+.fer{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #200cce;
+    padding: 10px;
+    color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    width: 80px;
+    border-radius: 15px;
+    border: #000 solid 3px;
+    z-index: 10;
+    transition: all 0.5s;
+}
+
+.ferr{
+    position: absolute;
+    top: 100px;
+    left: 10px;
+    background-color: #200cce;
+    padding: 10px;
+    color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    width: 80px;
+    border-radius: 15px;
+    border: #000 solid 3px;
+    transition: all 0.5s;
+}
+
+.ferr:hover{
+    border: #0427f1 solid 3px;;
+}
+
+.fer:hover{
+    border: #0427f1 solid 3px;;
+}
+
+.animation{
+    margin-top: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.animationLaude1,
+.animationLaude2,
+.animationLaude3,
+.animationLaude4
+{
+    margin: 10px;
+    background-color: #0928d3;
+    opacity: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    animation: infinite alternate ease-in-out 1.5s loyder;
+}
+
+.animationLaude2{
+    animation-delay: 0.1s;
+}
+
+.animationLaude2{
+    animation-delay: 0.2s;
+}
+
+.animationLaude3{
+    animation-delay: 0.3s;
+}
+
+.animationLaude4{
+    animation-delay: 0.4s;
+}
+
+@keyframes loyder {
+    0%{
+        transform: scale(1) translateY(20px);
+        opacity: 1;
+    }
+    50%{
+        transform: translatey(110PX);
+        background-color: #000000;
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(0PX);
+        opacity: 1;
+    }
+}
+
+.loy{
+    margin-top: 100px;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background-color: #0928d3;
+    animation: alternate loy 1.5s ease-in-out infinite;
+}
+
+textarea {
+  margin-top: 30px;
+  width: 90%;
+  min-height: 120px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+
+  background: #f9f9f9;
+  color: #333;
+
+  outline: none;
+  resize: none; /* ❗ запретить расширение */
+  transition: border-color 0.2s, background 0.2s;
+}
+
+/* При фокусе */
+textarea:focus {
+  border-color: #5865f2;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(88, 101, 242, 0.2);
+}
+
+/* Ошибка (например, когда register выдаёт error) */
+textarea.error {
+  border-color: #e63946;
+  background: #fff5f5;
+}
+
+
+@keyframes loy{
+    50%{
+        transform: scale(1.5);
+        background-color: #000;
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+
+.fer:hover{
+    transform: scale(1.1);
+}
+
+@keyframes fade-up {
+    0%{
+        z-index: -1;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100%{
+        z-index: -1;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.sdasadasdas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
