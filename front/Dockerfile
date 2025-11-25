@@ -11,13 +11,10 @@ RUN bun run build
 
 # ---------- PROD (NGINX) ----------
 FROM nginx:alpine AS prod
-#  WORKDIR /usr/share/nginx/html
+WORKDIR /usr/share/nginx/html
+COPY --from=build /app/dist .
+COPY nginx.conf /etc/nginx/nginx.conf
 
-#  COPY --from=build /app/dist .
-#  COPY nginx.conf /etc/nginx/nginx.conf
-
-COPY --from=build /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 
 
